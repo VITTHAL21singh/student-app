@@ -109,14 +109,10 @@ app.post('/api/login', (req, res) => {
   }
 
   // Return a success payload (hide the password string for safety)
+  const { password: _password, ...userWithoutPassword } = account;
   res.status(200).json({ 
     success: true, 
-    user: {
-      username: account.username,
-      firstName: account.firstName || '',
-      lastName: account.lastName || '',
-      class: account.class || ''
-    }
+    user: userWithoutPassword
   });
 });
 
