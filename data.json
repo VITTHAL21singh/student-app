@@ -1,0 +1,13 @@
+{
+  "students": [
+    {
+      "id": 1718223654000,
+      "submittedAt": "2026-08-13T18:40:00.000Z",
+      "firstName": "",
+      "lastName": "",
+      "username": "",
+      "password": "",
+      "type": "registration"
+    }
+  ]
+}

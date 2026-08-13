@@ -1,0 +1,1513 @@
+    <!DOCTYPE html>
+    <html lang="pa">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ਨਾਭਾ ਡਿਜ਼ੀਟਲ ਸਿੱਖਿਆ | Nabha Digital Learning</title>
+    <meta name="theme-color" content="#FF6B00">
+    <link rel="stylesheet" href="https://cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <style>
+        :root {
+        --primary: #FF6B00;
+        --primary-dark: #E65100;
+        --secondary: #2E7D32;
+        --accent: #1565C0;
+        --light: #FFF8E1;
+        --dark: #1A237E;
+        --text: #212121;
+        --text-light: #757575;
+        --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        --hover-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        --game-purple: #7B1FA2;
+        --game-pink: #C2185B;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+        font-family: 'Roboto', 'Noto Sans Gurmukhi', sans-serif;
+        background: var(--light);
+        color: var(--text);
+        line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .view { display: none !important; min-height: 100vh; }
+        .view.active { display: block !important; }
+
+        /* Header */
+        header {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--card-shadow);
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo-icon {
+        width: 45px; height: 45px; background: white; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: var(--primary); font-weight: bold; font-size: 1.5rem;
+        }
+        .logo-text { font-weight: 700; font-size: 1.2rem; }
+        .logo-subtext { font-size: 0.85rem; opacity: 0.9; }
+        .nav-icons { display: flex; gap: 10px; align-items: center; }
+        .nav-icon {
+        width: 40px; height: 40px; background: rgba(255,255,255,0.2);
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        cursor: pointer; border: none; color: white; font-size: 1rem;
+        }
+        .nav-icon:hover { background: rgba(255,255,255,0.35); }
+
+        /* Opening splash */
+    #view-opening {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white; display: flex; align-items: center; justify-content: center;
+        text-align: center; position: relative;
+        }
+        #view-opening.active { display: flex !important; }
+        .splash-logo {
+        width: 140px; height: 140px; background: white; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 20px; font-size: 3.5rem; color: var(--primary); font-weight: bold;
+        }
+        .splash-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
+        .splash-sub { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
+        .progress-track {
+        width: 100%; max-width: 400px; height: 8px; background: rgba(255,255,255,0.3);
+        border-radius: 10px; margin: 30px auto; overflow: hidden;
+        }
+        .progress-track-fill {
+        height: 100%; width: 0; background: white; border-radius: 10px;
+        animation: splashProgress 5s linear forwards;
+        }
+        @keyframes splashProgress { from { width: 0; } to { width: 100%; } }
+        .btn-splash {
+        padding: 12px 30px; background: rgba(255,255,255,0.2); color: white;
+        border: 2px solid white; border-radius: 30px; font-weight: 600; cursor: pointer;
+        font-size: 1rem;
+        }
+        .btn-splash:hover { background: white; color: var(--primary); }
+        .splash-features { display: flex; gap: 24px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+        .splash-feature { text-align: center; font-size: 0.85rem; }
+        .splash-feature i { font-size: 1.5rem; margin-bottom: 8px; display: block; }
+
+        /* Hero & buttons */
+        .hero {
+        padding: 50px 0; text-align: center; color: white;
+        background: linear-gradient(135deg, rgba(255,107,0,0.92), rgba(46,125,50,0.92));
+        }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 16px; }
+        .hero p { max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; }
+        .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+        padding: 12px 24px; border-radius: 30px; font-weight: 600; cursor: pointer;
+        border: none; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;
+        text-decoration: none;
+        }
+        .btn-primary { background: white; color: var(--primary); }
+        .btn-outline { background: transparent; color: white; border: 2px solid white; }
+        .btn-primary:hover { background: var(--light); }
+        .btn-outline:hover { background: rgba(255,255,255,0.15); }
+
+        /* Tabs */
+        .feature-tabs {
+        display: flex; flex-wrap: wrap; gap: 8px; margin: 30px 0 20px;
+        justify-content: center;
+        }
+        .tab {
+        padding: 10px 18px; border: none; border-radius: 20px; cursor: pointer;
+        background: white; color: var(--text-light); font-weight: 600;
+        box-shadow: var(--card-shadow);
+        }
+        .tab.active { background: var(--primary); color: white; }
+        .tab-content { display: none; padding-bottom: 40px; }
+        .tab-content.active { display: block; }
+
+        /* Cards & grids */
+        .card {
+        background: white; border-radius: 16px; box-shadow: var(--card-shadow);
+        padding: 24px; margin-bottom: 20px;
+        }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
+        .badge-card {
+        text-align: center; padding: 20px; background: #f9f9f9; border-radius: 12px;
+        cursor: pointer; transition: transform 0.2s;
+        }
+        .badge-card:hover { transform: translateY(-4px); }
+        .badge-card i { font-size: 2rem; color: var(--primary); margin-bottom: 8px; }
+        .resource-card {
+        background: white; border-radius: 12px; overflow: hidden;
+        box-shadow: var(--card-shadow); display: flex; gap: 0;
+        }
+        .resource-thumb {
+        width: 80px; min-height: 100px; display: flex; align-items: center;
+        justify-content: center; color: white; font-size: 1.8rem;
+        }
+        .resource-body { padding: 16px; flex: 1; }
+        .resource-body h3 { font-size: 1rem; margin-bottom: 6px; }
+        .resource-meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px; }
+        .resource-actions { display: flex; gap: 8px; }
+        .btn-sm {
+        padding: 8px 14px; border-radius: 8px; border: none; cursor: pointer;
+        font-size: 0.85rem; font-weight: 600;
+        }
+        .btn-download { background: var(--primary); color: white; }
+        .btn-delete { background: #f5f5f5; color: #c62828; }
+
+        /* Forms */
+        .form-panel {
+        max-width: 520px; margin: 40px auto; background: white;
+        border-radius: 20px; overflow: hidden; box-shadow: var(--hover-shadow);
+        }
+        .form-header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white; padding: 28px; text-align: center;
+        }
+        .form-header h1 { font-size: 1.8rem; margin-bottom: 6px; }
+        .form-body { padding: 28px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; }
+        .form-control {
+        width: 100%; padding: 12px 14px; border: 2px solid #e0e0e0;
+        border-radius: 10px; font-size: 1rem;
+        }
+        .form-control:focus { outline: none; border-color: var(--primary); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-login, .btn-register {
+        width: 100%; padding: 14px; background: var(--primary); color: white;
+        border: none; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer;
+        }
+        .btn-login:hover, .btn-register:hover { background: var(--primary-dark); }
+        .form-link { text-align: center; margin-top: 16px; font-size: 0.9rem; }
+        .form-link a { color: var(--primary); font-weight: 600; cursor: pointer; }
+
+        /* Quiz */
+        .quiz-wrap { max-width: 800px; margin: 30px auto; }
+        .quiz-header-bar {
+        background: linear-gradient(135deg, var(--game-purple), var(--game-pink));
+        color: white; padding: 24px; border-radius: 16px 16px 0 0; text-align: center;
+        }
+        .quiz-body { background: white; padding: 28px; border-radius: 0 0 16px 16px; box-shadow: var(--hover-shadow); }
+        .quiz-progress { height: 8px; background: #eee; border-radius: 4px; margin-bottom: 20px; }
+        .quiz-progress-fill { height: 100%; background: var(--primary); border-radius: 4px; transition: width 0.3s; }
+        .quiz-question { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; color: var(--dark); }
+        .quiz-options { display: grid; gap: 10px; }
+        .quiz-option {
+        padding: 14px 18px; border: 2px solid #e0e0e0; border-radius: 10px;
+        cursor: pointer; transition: all 0.2s;
+        }
+        .quiz-option:hover { border-color: var(--primary); background: #fff8f0; }
+        .quiz-option.selected { border-color: var(--primary); background: #fff3e0; }
+        .quiz-option.correct { border-color: var(--secondary); background: #e8f5e9; }
+        .quiz-option.wrong { border-color: #c62828; background: #ffebee; }
+        .quiz-nav { display: flex; justify-content: space-between; margin-top: 24px; gap: 12px; }
+        .quiz-results { text-align: center; }
+        .quiz-score-box {
+        display: flex; justify-content: center; gap: 30px; margin: 24px 0; flex-wrap: wrap;
+        }
+        .score-card {
+        background: #f5f5f5; padding: 20px 30px; border-radius: 12px; min-width: 140px;
+        }
+        .score-card h3 { color: var(--text-light); font-size: 0.9rem; }
+        .score-card .val { font-size: 2rem; font-weight: 700; color: var(--primary); }
+
+        /* Performance */
+        .student-profile {
+        background: white; border-radius: 20px; padding: 28px; margin-bottom: 30px;
+        display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+        box-shadow: var(--hover-shadow);
+        }
+        .student-avatar {
+        width: 100px; height: 100px; border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white; font-size: 2.5rem; font-weight: bold;
+        display: flex; align-items: center; justify-content: center;
+        }
+        .stat-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+        .stat-box {
+        background: #f5f5f5; padding: 12px 20px; border-radius: 12px; text-align: center;
+        }
+        .stat-box .num { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+        .stat-box .lbl { font-size: 0.8rem; color: var(--text-light); }
+        .perf-card {
+        background: white; border-radius: 16px; box-shadow: var(--card-shadow); overflow: hidden;
+        }
+        .perf-card-head {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white; padding: 18px 22px;
+        }
+        .perf-card-body { padding: 20px; }
+        .quiz-result-row {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 12px 0; border-bottom: 1px solid #f0f0f0;
+        }
+        .progress-item { margin-bottom: 16px; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; }
+        .progress-bar { height: 10px; background: #eee; border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); border-radius: 5px; }
+        .chart-box { height: 280px; }
+
+        /* Downloads */
+        .download-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 30px; }
+        .download-stat {
+        background: white; padding: 20px; border-radius: 12px; text-align: center;
+        box-shadow: var(--card-shadow);
+        }
+        .download-stat .val { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .download-item {
+        display: flex; gap: 16px; background: white; padding: 16px;
+        border-radius: 12px; margin-bottom: 12px; box-shadow: var(--card-shadow);
+        }
+        .download-preview {
+        width: 64px; height: 64px; border-radius: 10px; display: flex;
+        align-items: center; justify-content: center; color: white; font-size: 1.5rem;
+        }
+
+        /* Voice */
+        .mic-btn {
+        width: 80px; height: 80px; border-radius: 50%; background: var(--primary);
+        color: white; border: none; font-size: 2rem; cursor: pointer; margin: 20px auto;
+        display: flex; align-items: center; justify-content: center;
+        }
+        .mic-btn.listening { animation: pulse 1s infinite; background: var(--secondary); }
+        @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+        .voice-response {
+        background: #f5f5f5; padding: 16px; border-radius: 12px; margin-top: 16px;
+        text-align: center; min-height: 60px;
+        }
+        .command-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px 0; }
+        .chip {
+        padding: 8px 14px; background: white; border-radius: 20px; font-size: 0.85rem;
+        cursor: pointer; box-shadow: var(--card-shadow);
+        }
+
+        /* Math game */
+        .math-game { text-align: center; }
+        .math-problem { font-size: 2rem; font-weight: 700; margin: 20px 0; color: var(--dark); }
+        .math-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 300px; margin: 0 auto; }
+        .math-opt {
+        padding: 14px; background: #f5f5f5; border-radius: 10px; cursor: pointer; font-weight: 600;
+        }
+        .math-opt:hover { background: #fff3e0; }
+
+        /* Offline indicator */
+        .offline-bar {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #c62828;
+        color: white; padding: 10px; text-align: center; font-weight: 600;
+        display: none; z-index: 200;
+        }
+        .toast {
+        position: fixed; bottom: 60px; left: 50%; transform: translateX(-50%);
+        background: var(--dark); color: white; padding: 12px 24px; border-radius: 8px;
+        z-index: 300; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+        }
+        .toast.show { opacity: 1; }
+
+        footer {
+        background: var(--dark); color: white; padding: 40px 0 20px; margin-top: 40px;
+        }
+        .footer-bottom { text-align: center; padding-top: 20px; font-size: 0.85rem; opacity: 0.8; }
+
+        @media (max-width: 600px) {
+        .form-row { grid-template-columns: 1fr; }
+        .hero h1 { font-size: 1.6rem; }
+        }
+    </style>
+    </head>
+    <body>
+
+    <!-- OFFLINE INDICATOR -->
+    <div class="offline-bar" id="offlineBar">
+        <i class="fas fa-wifi-slash"></i> ਆਫਲਾਈਨ ਮੋਡ — ਡਾਟਾ ਸਥਾਨਕ ਸਟੋਰ ਵਿੱਚ ਸੁਰੱਖਿਅਤ | Offline — data saved locally
+    </div>
+    <div class="toast" id="toast"></div>
+    <div id="bootError" style="display:none;position:fixed;top:0;left:0;right:0;background:#c62828;color:#fff;padding:12px;text-align:center;z-index:9999;"></div>
+
+    <!-- VIEW 1: OPENING -->
+    <section id="view-opening" class="view active">
+        <div class="container" style="padding: 40px 15px;">
+        <div class="splash-logo">ਨਾ</div>
+        <h1 class="splash-title">ਨਾਭਾ ਡਿਜ਼ੀਟਲ ਸਿੱਖਿਆ</h1>
+        <p class="splash-sub">Nabha Digital Learning</p>
+        <p>ਡਿਜ਼ੀਟਲ ਸਿੱਖਿਆ ਹੁਣ ਆਫਲਾਈਨ ਵੀ</p>
+        <div class="progress-track"><div class="progress-track-fill"></div></div>
+        <button class="btn-splash" onclick="NabhaApp.showView('main')">
+            <i class="fas fa-arrow-right"></i> ਅੱਗੇ ਵਧੋ | Continue
+        </button>
+        <div class="splash-features">
+            <div class="splash-feature"><i class="fas fa-microphone"></i>ਆਵਾਜ਼ ਨਾਲ ਸਿੱਖੋ</div>
+            <div class="splash-feature"><i class="fas fa-gamepad"></i>ਖੇਡਣਾ ਸਿੱਖੋ</div>
+            <div class="splash-feature"><i class="fas fa-wifi-slash"></i>ਬਿਨਾਂ ਇੰਟਰਨੈੱਟ</div>
+        </div>
+        </div>
+    </section>
+
+    <!-- SHARED HEADER (hidden on opening) -->
+    <header id="appHeader" style="display:none;">
+        <div class="container header-content">
+        
+        <button onClick="myFunction()">Click me</button>
+            <div class="logo-icon">ਨਾ</div>
+            <div>
+            <div class="logo-text">ਨਾਭਾ ਡਿਜ਼ੀਟਲ ਸਿੱਖਿਆ</div>
+            <div class="logo-subtext">Nabha Digital Learning</div>
+            </div>
+        </div>
+        <div class="nav-icons">
+            <button class="nav-icon" title="Performance" onclick="NabhaApp.showView('performance')"><i class="fas fa-chart-line"></i></button>
+            <button class="nav-icon" title="Downloads" onclick="NabhaApp.showView('download')"><i class="fas fa-download"></i></button>
+            <button class="nav-icon" title="Quiz" onclick="NabhaApp.showView('quiz')"><i class="fas fa-gamepad"></i></button>
+            <button class="nav-icon" title="Login" onclick="NabhaApp.showView('login')"><i class="fas fa-user"></i></button>
+        </div>
+        </div>
+    </header>
+
+    <!-- VIEW 2: MAIN -->
+    <section id="view-main" class="view">
+        <div class="hero">
+        <div class="container">
+            <h1>ਡਿਜ਼ੀਟਲ ਸਿੱਖਿਆ ਹੁਣ ਆਫਲਾਈਨ ਵੀ</h1>
+            <p>ਨਾਭਾ ਦੇ ਪਿੰਡਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਪਲੇਟਫਾਰਮ — ਆਵਾਜ਼ ਨਾਲ ਸਿੱਖੋ, ਖੇਡੋ, ਤਰੱਕੀ ਟ੍ਰੈਕ ਕਰੋ।</p>
+            <div class="btn-row">
+            <button class="btn btn-primary" onclick="NabhaApp.showView('login')"><i class="fas fa-sign-in-alt"></i> ਲੌਗਇਨ</button>
+            <button class="btn btn-outline" onclick="NabhaApp.showView('quiz')"><i class="fas fa-play-circle"></i> ਕੁਇਜ਼ ਖੇਡੋ</button>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+        <div class="feature-tabs" id="mainTabs">
+            <button class="tab active" data-tab="voice">ਆਵਾਜ਼ ਨੈਵੀਗੇਸ਼ਨ</button>
+            <button class="tab" data-tab="game">ਆਫਲਾਈਨ ਖੇਡਾਂ</button>
+            <button class="tab" data-tab="badges">ਡਿਜ਼ੀਟਲ ਬੈਜ</button>
+            <button class="tab" data-tab="edugames">ਸਿੱਖਣ ਖੇਡਾਂ</button>
+            <button class="tab" data-tab="resources">ਸਰੋਤ ਲਾਇਬ੍ਰੇਰੀ</button>
+        </div>
+
+        <div id="tab-voice" class="tab-content active">
+            <div class="card" style="text-align:center;">
+            <h2>ਆਵਾਜ਼ ਨਾਲ ਐਪ ਚਲਾਓ</h2>
+            <p style="color:var(--text-light);margin-bottom:10px;">ਪੰਜਾਬੀ ਜਾਂ ਹਿੰਦੀ ਵਿੱਚ ਬੋਲ ਕੇ ਕੰਟਰੋਲ ਕਰੋ</p>
+            <button class="mic-btn" id="micBtn" onclick="NabhaApp.toggleVoice()"><i class="fas fa-microphone"></i></button>
+            <div class="command-chips">
+     <div class="command-chips">
+    <div class="command-chips">
+    <button class="chip" onclick="NabhaApp.voiceCommand('ਗਣਿਤ ਦੇ ਪਾਠ ਦਿਖਾਓ')" style="background: none; border: none; font-family: inherit; font-size: inherit; color: inherit; cursor: pointer; display: inline-block;">ਗਣਿਤ ਦੇ ਪਾਠ ਦਿਖਾਓ</button>
+    <button class="chip" onclick="NabhaApp.voiceCommand('ਮੇਰੀ ਤਰੱਕੀ ਵੇਖੋ')" style="background: none; border: none; font-family: inherit; font-size: inherit; color: inherit; cursor: pointer; display: inline-block;">ਮੇਰੀ ਤਰੱਕੀ ਵੇਖੋ</button>
+    <button class="chip" onclick="NabhaApp.voiceCommand('ਖੇਡ ਸ਼ੁਰੂ ਕਰੋ')" style="background: none; border: none; font-family: inherit; font-size: inherit; color: inherit; cursor: pointer; display: inline-block;">ਖੇਡ ਸ਼ੁਰੂ ਕਰੋ</button>
+</div>
+
+
+            <div class="voice-response" id="voiceResponse">ਮਾਈਕ੍ਰੋਫੋਨ ਦਬਾਓ ਅਤੇ ਬੋਲੋ</div>
+            </div>
+        </div>
+
+        <div id="tab-game" class="tab-content">
+            <div class="card" style="text-align:center;">
+            <h2>ਦੋਸਤਾਂ ਨਾਲ ਕੁਇਜ਼ ਚੈਲੈਂਜ</h2>
+            <p style="margin:20px 0;">ਬਿਨਾਂ ਇੰਟਰਨੈੱਟ ਦੇ ਖੇਡੋ</p>
+            <button class="btn btn-primary" onclick="NabhaApp.showView('quiz')">ਸ਼ੁਰੂ ਕਰੋ | Start Quiz</button>
+            </div>
+        </div>
+
+        <div id="tab-badges" class="tab-content">
+            <div class="card">
+            <h2 style="text-align:center;margin-bottom:20px;">ਡਿਜ਼ੀਟਲ ਬੈਜ</h2>
+            <div class="grid-4" id="badgeCatalog"></div>
+            </div>
+        </div>
+
+        <div id="tab-edugames" class="tab-content">
+            <div class="card math-game">
+            <h2>ਗਣਿਤ ਦਾ ਜਾਦੂ</h2>
+            <p>ਅੰਕ: <strong id="mathScore">0</strong> | ਜ਼ਿੰਦਗੀ: <strong id="mathLives">3</strong></p>
+            <div class="math-problem" id="mathProblem">?</div>
+            <div class="math-options" id="mathOptions"></div>
+            <div style="margin-top:16px;">
+                <button class="btn-sm btn-download" onclick="NabhaApp.newMathProblem()">ਨਵਾਂ ਸਵਾਲ</button>
+            </div>
+            </div>
+        </div>
+
+        <div id="tab-resources" class="tab-content">
+            <h2 style="margin-bottom:16px;">ਆਫਲਾਈਨ ਸਰੋਤ</h2>
+            <div id="resourceCatalog"></div>
+        </div>
+        </div>
+    </section>
+
+    <!-- VIEW 3: LOGIN -->
+       <!-- VIEW 3: LOGIN -->
+    <section id="view-login" class="view">
+        <div class="form-panel">
+            <div class="form-header">
+                <h1>ਲੌਗਇਨ | Login</h1>
+                <p>ਆਪਣੇ ਖਾਤੇ ਤੱਕ ਪਹੁੰਚੋ</p>
+            </div>
+            <div class="form-body">
+                <div class="form-group">
+                    <label for="loginUsername">ਲੌਗਇਨ ਆਈਡੀ (Login Id.)</label>
+                    <input type="text" id="loginUsername" class="form-control" placeholder="Login Id." required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">ਪਾਸਵਰਡ (Password)</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                                <button class="btn-login" onclick="NabhaApp.login()">ਲੌਗਇਨ ਕਰੋ | Login</button>
+                <div class="form-link">ਨਵਾਂ ਖਾਤਾ? <button type="button" onclick="NabhaApp.showView('register')" style="background: none; border: none; color: #1565C0; text-decoration: underline; cursor: pointer; font-size: inherit; font-family: inherit; padding: 0; display: inline;">ਸਾਈਨ ਅੱਪ</button></div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- VIEW 4: REGISTRATION -->
+    <section id="view-register" class="view">
+        <div class="form-panel" style="max-width:600px;">
+        <div class="form-header">
+            <h1>ਰਜਿਸਟਰ | Register</h1>
+            <p>ਨਵਾਂ ਵਿਦਿਆਰਥੀ ਖਾਤਾ ਬਣਾਓ (ਆਫਲਾਈਨ ਸਟੋਰ)</p>
+            </div>
+        <div class="form-body">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regFirstName">ਪਹਿਲਾ ਨਾਮ (First Name)</label>
+                    <input type="text" id="regFirstName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="regLastName">ਆਖਰੀ ਨਾਮ (Last Name)</label>
+                    <input type="text" id="regLastName" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="regUsername">ਯੂਜ਼ਰਨੇਮ / ਲੌਗਇਨ ਆਈਡੀ (Username)</label>
+                <input type="text" id="regUsername" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="regPhone">ਫੋਨ (Phone)</label>
+                <input type="tel" id="regPhone" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="regClass">ਕਲਾਸ (Class)</label>
+                <select id="regClass" class="form-control">
+                    <option value="8">ਕਲਾਸ 8</option>
+                    <option value="9">ਕਲਾਸ 9</option>
+                    <option value="10">ਕਲਾਸ 10</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="regSchool">ਸਕੂਲ ਦਾ ਨਾਮ (School Name)</label>
+                <input type="text" id="regSchool" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="regPassword">ਪਾਸਵਰਡ (Password)</label>
+                <input type="password" id="regPassword" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="regConfirm">ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ (Confirm Password)</label>
+                <input type="password" id="regConfirm" class="form-control" required>
+            </div>
+            
+            <button class="btn-login" onclick="NabhaApp.login()">ਲੌਗਇਨ ਕਰੋ | Login</button>
+
+<div class="form-link">ਪਹਿਲਾਂ ਹੀ ਖਾਤਾ? <div class="form-link">
+    ਪਹਿਲਾਂ ਹੀ ਖਾਤਾ? 
+    <button onclick="NabhaApp.showView('login')" style="background: none; border: none; color: #1565C0; text-decoration: underline; cursor: pointer; font-size: inherit; font-family: inherit; padding: 0;">ਲੌਗਇਨ</button>
+</div>
+ਲੌਗਇਨ</a></div>
+        </div>
+    </section>
+
+
+    <!-- VIEW 5: QUIZ -->
+    <section id="view-quiz" class="view">
+        <div class="container quiz-wrap">
+        <div id="quizStart">
+            <div class="quiz-header-bar">
+            <h1>ਕੁਇਜ਼ ਚੈਲੈਂਜ | Quiz Challenge</h1>
+            <p>ਦੋ ਖਿਡਾਰੀ — ਆਫਲਾਈਨ ਖੇਡੋ</p>
+            </div>
+            <div class="quiz-body">
+            <div class="form-row">
+               <div class="form-group">
+    <label for="player1Name">ਖਿਡਾਰੀ 1 (Player 1)</label>
+    <input type="text" id="player1Name" class="form-control" placeholder="ਖਿਡਾਰੀ 1 ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ">
+</div>
+<div class="form-group">
+    <label for="player2Name">ਖਿਡਾਰੀ 2 (Player 2)</label>
+    <input type="text" id="player2Name" class="form-control" placeholder="ਖਿਡਾਰੀ 2 ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ">
+</div>
+
+            </div>
+            <button class="btn-login" onclick="NabhaApp.startQuiz()">ਸ਼ੁਰੂ ਕਰੋ | Start</button>
+            </div>
+        </div>
+        <div id="quizPlay" style="display:none;">
+            <div class="quiz-header-bar">
+            <h2 id="quizPlayerLabel">ਖਿਡਾਰੀ 1 ਦੀ ਵਾਰੀ</h2>
+            <p>ਸਵਾਲ <span id="quizQNum">1</span> / <span id="quizQTotal">5</span></p>
+            </div>
+            <div class="quiz-body">
+            <div class="quiz-progress"><div class="quiz-progress-fill" id="quizProgressBar" style="width:20%"></div></div>
+            <div class="quiz-question" id="quizQuestion"></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-nav">
+                <button class="btn-sm btn-delete" id="quizPrevBtn" onclick="NabhaApp.quizPrev()">ਪਿੱਛੇ</button>
+                <button class="btn-sm btn-download" id="quizNextBtn" onclick="NabhaApp.quizNext()">ਅੱਗੇ</button>
+            </div>
+            </div>
+        </div>
+        <div id="quizResults" style="display:none;">
+            <div class="quiz-header-bar"><h2>ਨਤੀਜੇ | Results</h2></div>
+            <div class="quiz-body quiz-results">
+            <div class="quiz-score-box">
+                <div class="score-card"><h3 id="resP1Name">P1</h3><div class="val" id="resP1Score">0%</div></div>
+                <div class="score-card"><h3 id="resP2Name">P2</h3><div class="val" id="resP2Score">0%</div></div>
+            </div>
+            <button class="btn-login" onclick="NabhaApp.saveQuizAndShowPerformance()">ਸੁਰੱਖਿਅਤ ਕਰੋ ਅਤੇ ਤਰੱਕੀ ਵੇਖੋ</button>
+            <button class="btn-sm btn-delete" style="margin-top:12px;" onclick="NabhaApp.resetQuizUI()">ਦੁਬਾਰਾ ਖੇਡੋ</button>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- VIEW 6: PERFORMANCE -->
+    <section id="view-performance" class="view">
+        <div class="container" style="padding:30px 15px;">
+        <h1 style="text-align:center;margin-bottom:30px;color:var(--dark);">ਵਿਦਿਆਰਥੀ ਦੀ ਕਾਰਗੁਜ਼ਾਰੀ</h1>
+        <div class="student-profile" id="perfProfile">
+            <div class="student-avatar" id="perfAvatar">?</div>
+            <div>
+            <h2 id="perfName">—</h2>
+            <p id="perfMeta" style="color:var(--text-light);"></p>
+            <div class="stat-row">
+                <div class="stat-box"><div class="num" id="statQuizzes">0</div><div class="lbl">ਕੁਇਜ਼</div></div>
+                <div class="stat-box"><div class="num" id="statAvg">0%</div><div class="lbl">ਔਸਤ ਸਕੋਰ</div></div>
+                <div class="stat-box"><div class="num" id="statBadges">0</div><div class="lbl">ਬੈਜ</div></div>
+            </div>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="perf-card">
+            <div class="perf-card-head"><h3>ਤਾਜ਼ਾ ਕੁਇਜ਼ ਨਤੀਜੇ</h3></div>
+            <div class="perf-card-body" id="perfQuizList"></div>
+            </div>
+            <div class="perf-card">
+            <div class="perf-card-head"><h3>ਪ੍ਰਾਪਤ ਬੈਜ</h3></div>
+            <div class="perf-card-body"><div class="grid-4" id="perfBadges"></div></div>
+            </div>
+            <div class="perf-card">
+            <div class="perf-card-head"><h3>ਸਿੱਖਣ ਦੀ ਤਰੱਕੀ</h3></div>
+            <div class="perf-card-body"><div class="chart-box"><canvas id="progressChart"></canvas></div></div>
+            </div>
+            <div class="perf-card">
+            <div class="perf-card-head"><h3>ਵਿਸ਼ੇ ਅਨੁਸਾਰ ਤਰੱਕੀ</h3></div>
+            <div class="perf-card-body" id="perfSubjects"></div>
+            </div>
+        </div>
+        <div class="btn-row" style="margin-top:30px;">
+            <button class="btn btn-primary" onclick="NabhaApp.showView('quiz')"><i class="fas fa-play"></i> ਨਵਾਂ ਕੁਇਜ਼</button>
+            <button class="btn btn-outline" style="color:var(--primary);border-color:var(--primary);" onclick="NabhaApp.exportStudentData()"><i class="fas fa-download"></i> ਡਾਟਾ ਐਕਸਪੋਰਟ</button>
+        </div>
+        </div>
+    </section>
+
+    <!-- VIEW 7: DOWNLOADS -->
+    <section id="view-download" class="view">
+        <div class="container" style="padding:30px 15px;">
+        <h1 style="text-align:center;margin-bottom:10px;">ਮੇਰੇ ਡਾਊਨਲੋਡ</h1>
+        <p style="text-align:center;color:var(--text-light);margin-bottom:30px;">ਆਫਲਾਈਨ ਸਮੱਗਰੀ — ਸਥਾਨਕ ਸਟੋਰ</p>
+        <div class="download-stats">
+            <div class="download-stat"><div class="val" id="dlTotal">0</div><div>ਕੁੱਲ</div></div>
+            <div class="download-stat"><div class="val" id="dlToday">0</div><div>ਅੱਜ</div></div>
+            <div class="download-stat"><div class="val" id="dlWeek">0</div><div>ਇਸ ਹਫ਼ਤੇ</div></div>
+        </div>
+        <h2 style="margin-bottom:16px;">ਉਪਲਬਧ ਸਮੱਗਰੀ | Available</h2>
+        <div id="catalogDownloads"></div>
+        <h2 style="margin:30px 0 16px;">ਮੇਰੀ ਸੂਚੀ | My List</h2>
+        <div id="myDownloads"></div>
+        </div>
+    </section>
+
+    <footer id="appFooter" style="display:none;">
+        <div class="container footer-bottom">
+        <p>© ਨਾਭਾ ਡਿਜ਼ੀਟਲ ਸਿੱਖਿਆ | Offline student data stored in IndexedDB on this device</p>
+        </div>
+    </footer>
+
+    <script>
+    /* ============================================================
+        NABHA DIGITAL BRIDGE — Single Page App + Offline IndexedDB
+        ============================================================ */
+
+    // Backend API (run: npm install && npm start)
+    const API_BASE = 'http://localhost:3000';
+
+    const NabhaAPI = {
+        async submit(formData) {
+        const response = await fetch(`${API_BASE}/api/submit`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        const result = await response.json();
+        if (!response.ok) {
+            throw new Error(result.error || 'Could not save to server');
+        }
+        return result;
+        },
+
+        async getData() {
+        const response = await fetch(`${API_BASE}/api/data`);
+        if (!response.ok) {
+            throw new Error('Could not load data from server');
+        }
+        return response.json();
+        }
+    };
+
+    const NabhaDB = (() => {
+        const DB_NAME = 'NabhaDigitalDB';
+        const DB_VERSION = 1;
+        let db = null;
+
+        function open() {
+        return new Promise((resolve, reject) => {
+            if (db) return resolve(db);
+            const req = indexedDB.open(DB_NAME, DB_VERSION);
+            req.onerror = () => reject(req.error);
+            req.onupgradeneeded = (e) => {
+            const d = e.target.result;
+            if (!d.objectStoreNames.contains('students')) {
+                d.createObjectStore('students', { keyPath: 'id', autoIncrement: true });
+            }
+            if (!d.objectStoreNames.contains('quizAttempts')) {
+                d.createObjectStore('quizAttempts', { keyPath: 'id', autoIncrement: true });
+            }
+            if (!d.objectStoreNames.contains('downloads')) {
+                d.createObjectStore('downloads', { keyPath: 'id', autoIncrement: true });
+            }
+            if (!d.objectStoreNames.contains('progress')) {
+                d.createObjectStore('progress', { keyPath: 'id', autoIncrement: true });
+            }
+            if (!d.objectStoreNames.contains('badges')) {
+                d.createObjectStore('badges', { keyPath: 'id', autoIncrement: true });
+            }
+            if (!d.objectStoreNames.contains('gameSessions')) {
+                d.createObjectStore('gameSessions', { keyPath: 'id', autoIncrement: true });
+            }
+            if (!d.objectStoreNames.contains('meta')) {
+                d.createObjectStore('meta', { keyPath: 'key' });
+            }
+            };
+            req.onsuccess = () => { db = req.result; resolve(db); };
+        });
+        }
+
+        async function tx(store, mode) {
+        const d = await open();
+        return d.transaction(store, mode).objectStore(store);
+        }
+
+        async function add(store, data) {
+        const s = await tx(store, 'readwrite');
+        return new Promise((res, rej) => {
+            const r = s.add(data);
+            r.onsuccess = () => res(r.result);
+            r.onerror = () => rej(r.error);
+        });
+        }
+
+        async function put(store, data) {
+        const s = await tx(store, 'readwrite');
+        return new Promise((res, rej) => {
+            const r = s.put(data);
+            r.onsuccess = () => res(r.result);
+            r.onerror = () => rej(r.error);
+        });
+        }
+
+        async function getAll(store) {
+        const s = await tx(store, 'readonly');
+        return new Promise((res, rej) => {
+            const r = s.getAll();
+            r.onsuccess = () => res(r.result);
+            r.onerror = () => rej(r.error);
+        });
+        }
+
+        async function getByIndex(store, field, value) {
+        const all = await getAll(store);
+        return all.filter(x => x[field] === value);
+        }
+
+        async function deleteItem(store, id) {
+        const s = await tx(store, 'readwrite');
+        return new Promise((res, rej) => {
+            const r = s.delete(id);
+            r.onsuccess = () => res();
+            r.onerror = () => rej(r.error);
+        });
+        }
+
+        async function setMeta(key, value) {
+        await put('meta', { key, value });
+        }
+
+        async function getMeta(key) {
+        const s = await tx('meta', 'readonly');
+        return new Promise((res) => {
+            const r = s.get(key);
+            r.onsuccess = () => res(r.result ? r.result.value : null);
+            r.onerror = () => res(null);
+        });
+        }
+
+        return { open, add, put, getAll, getByIndex, deleteItem, setMeta, getMeta };
+    })();
+
+    const CONTENT_CATALOG = [
+        { contentId: 'math5', title: 'ਗਣਿਤ ਦੀਆਂ ਕਿਤਾਬਾਂ - ਕਲਾਸ 5', type: 'PDF', sizeMB: 120, description: 'ਕਲਾਸ 5 ਗਣਿਤ PDF', icon: 'book', color: '#4CAF50', subject: 'math' },
+        { contentId: 'sci-water', title: 'ਵਿਗਿਆਨ - ਪਾਣੀ ਦਾ ਚੱਕਰ', type: 'MP4', sizeMB: 85, description: 'ਵਿਗਿਆਨ ਵੀਡੀਓ', icon: 'video', color: '#2196F3', subject: 'science' },
+        { contentId: 'eng3', title: 'ਅੰਗਰੇਜ਼ੀ ਪਾਠ 3', type: 'MP3', sizeMB: 45, description: 'ਆਡੀਓ ਪਾਠ', icon: 'headphones', color: '#9C27B0', subject: 'english' },
+        { contentId: 'mathgame', title: 'ਗਣਿਤ ਦਾ ਜਾਦੂ', type: 'APK', sizeMB: 65, description: 'ਇੰਟਰੈਕਟਿਵ ਖੇਡ', icon: 'gamepad', color: '#FF9800', subject: 'math' },
+        { contentId: 'hist1', title: 'ਭਾਰਤ ਦਾ ਇਤਿਹਾਸ', type: 'PDF', sizeMB: 90, description: 'ਇਤਿਹਾਸ PDF', icon: 'history', color: '#F44336', subject: 'history' },
+        { contentId: 'chem', title: 'ਰਸਾਇਣ ਵਿਗਿਆਨ', type: 'PDF', sizeMB: 75, description: 'ਰਸਾਇਣ ਪ੍ਰਯੋਗ', icon: 'flask', color: '#009688', subject: 'science' }
+    ];
+
+    const BADGE_CATALOG = [
+        { badgeId: 'typing', name: 'ਟਾਈਪਿੰਗ', icon: 'keyboard', desc: 'ਤੇਜ਼ ਟਾਈਪਿੰਗ' },
+        { badgeId: 'security', name: 'ਸੁਰੱਖਿਆ', icon: 'shield-alt', desc: 'ਆਨਲਾਈਨ ਸੁਰੱਖਿਆ' },
+        { badgeId: 'coding', name: 'ਕੋਡਿੰਗ', icon: 'code', desc: 'ਪ੍ਰੋਗਰਾਮਿੰਗ' },
+        { badgeId: 'search', name: 'ਖੋਜ', icon: 'search', desc: 'ਇੰਟਰਨੈੱਟ ਖੋਜ' },
+        { badgeId: 'math', name: 'ਗਣਿਤ ਮਾਹਰ', icon: 'calculator', desc: 'ਗਣਿਤ ਮਾਹਰ' },
+        { badgeId: 'quiz', name: 'ਕੁਇਜ਼ ਚੈਂਪੀਅਨ', icon: 'trophy', desc: 'ਕੁਇਜ਼ ਜੇਤੂ' }
+    ];
+
+    const QUIZ_DATA = [
+        { question: 'ਪੰਜਾਬ ਦੀ ਰਾਜਧਾਨੀ? | Capital of Punjab?', options: ['ਚੰਡੀਗੜ੍ਹ', 'ਲੁਧਿਆਣਾ', 'ਅੰਮ੍ਰਿਤਸਰ', 'ਜਲੰਧਰ'], correct: 0 },
+        { question: 'ਭਾਰਤ ਦਾ ਰਾਸ਼ਟਰੀ ਪੰਛੀ? | National bird?', options: ['ਮੋਰ', 'ਕਬੂਤਰ', 'ਤੋਤਾ', 'ਬੱਗੁਲਾ'], correct: 0 },
+        { question: 'ਪਾਣੀ ਦਾ ਫਾਰਮੂਲਾ? | Water formula?', options: ['H2O', 'CO2', 'O2', 'NaCl'], correct: 0 },
+        { question: 'ਪਹਿਲਾ ਪ੍ਰਧਾਨ ਮੰਤਰੀ? | First PM?', options: ['ਨਹਿਰੂ', 'ਗਾਂਧੀ', 'ਪਟੇਲ', 'ਅੰਬੇਡਕਰ'], correct: 0 },
+        { question: 'ਧਰਤੀ ਤੋਂ ਸੂਰਜ ਦੀ ਦੂਰੀ?', options: ['150 million km', '100 million km', '200 million km', '50 million km'], correct: 0 }
+    ];
+
+    const NabhaApp = {
+            // --- CONNECTED BACKEND ROUTES ---
+    register: async function() {
+        const payload = {
+            firstName: document.getElementById('regFirstName')?.value.trim() || "",
+            lastName: document.getElementById('regLastName')?.value.trim() || "",
+            username: document.getElementById('regUsername')?.value.trim() || "",
+            phone: document.getElementById('regPhone')?.value.trim() || "",
+            class: document.getElementById('regClass')?.value || "8",
+            school: document.getElementById('regSchool')?.value.trim() || "",
+            password: document.getElementById('regPassword')?.value || "",
+            type: 'registration'
+        };
+
+        if (!payload.username || !payload.password) {
+            alert("ਕਿਰਪਾ ਕਰਕੇ ਯੂਜ਼ਰਨੇਮ ਅਤੇ ਪਾਸਵਰਡ ਭਰੋ!");
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert("ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਸਫਲ ਰਹੀ! (Registration Complete!)");
+                this.showView('login');
+            } else {
+                alert("ਗਲਤੀ: " + data.error);
+            }
+        } catch (err) {
+            alert("ਸਰਵਰ ਕਨੈਕਸ਼ਨ ਫੇਲ੍ਹ ਹੋ ਗਿਆ");
+        }
+    },
+
+    login: async function() {
+        const usernameInput = document.getElementById('loginUsername')?.value.trim();
+        const passwordInput = document.getElementById('loginPassword')?.value;
+
+        if (!usernameInput || !passwordInput) {
+            alert("ਕਿਰਪਾ ਕਰਕੇ ਯੂਜ਼ਰਨੇਮ ਅਤੇ ਪਾਸਵਰਡ ਭਰੋ!");
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: usernameInput, password: passwordInput })
+            });
+
+            const outcome = await response.json();
+
+            if (response.ok) {
+                alert(`ਜੀ ਆਇਆਂ ਨੂੰ, ${outcome.user.firstName || usernameInput}!`);
+                localStorage.setItem('activeStudent', JSON.stringify(outcome.user));
+                this.currentUser = outcome.user; 
+                this.showView('main'); 
+            } else {
+                alert("ਗਲਤੀ: " + outcome.error);
+            }
+        } catch (err) {
+            alert("ਸਰਵਰ ਨਾਲ ਸੰਪਰਕ ਟੁੱਟ ਗਿਆ");
+        }
+    },
+    // ---------------------------------
+
+        currentUser: null,
+        progressChart: null,
+        quizState: null,
+        mathState: { score: 0, lives: 3, answer: 0 },
+
+        async init() {
+        try {
+            this.bindTabs();
+            this.bindOnlineStatus();
+            this.renderBadgeCatalog();
+            this.renderResourceCatalog();
+            this.newMathProblem();
+            this.showView('opening');
+
+            if (!window.indexedDB) {
+            throw new Error('IndexedDB not available in this browser');
+            }
+            await NabhaDB.open();
+            const sessionId = await NabhaDB.getMeta('currentStudentId');
+            if (sessionId) {
+            const students = await NabhaDB.getAll('students');
+            this.currentUser = students.find(s => s.id === sessionId);
+            }
+            if (this.currentUser) this.toast('ਵਾਪਸੀ ਸਵਾਗਤ, ' + this.currentUser.firstName);
+
+            setTimeout(() => {
+            if (document.getElementById('view-opening').classList.contains('active')) {
+                this.showView('main');
+            }
+            }, 5000);
+        } catch (err) {
+            console.error(err);
+            const el = document.getElementById('bootError');
+            el.style.display = 'block';
+            el.textContent = 'ਆਫਲਾਈਨ ਸਟੋਰ ਲੋਡ ਨਹੀਂ ਹੋਇਆ: ' + err.message + ' — Chrome/Edge ਵਿੱਚ ਖੋਲ੍ਹੋ ਜਾਂ start-server.command ਚਲਾਓ';
+            this.showView('opening');
+        }
+        },
+
+        toast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2800);
+        },
+
+        showView(name) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        const el = document.getElementById('view-' + name);
+        if (el) el.classList.add('active');
+        const hideChrome = name === 'opening';
+        document.getElementById('appHeader').style.display = hideChrome ? 'none' : 'block';
+        document.getElementById('appFooter').style.display = hideChrome ? 'none' : 'block';
+        if (name === 'performance') this.loadPerformance();
+        if (name === 'download') this.loadDownloads();
+        if (name === 'quiz') this.resetQuizUI();
+        },
+
+        bindTabs() {
+        document.querySelectorAll('#mainTabs .tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+            document.querySelectorAll('#mainTabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+        },
+
+        bindOnlineStatus() {
+        const bar = document.getElementById('offlineBar');
+        const update = () => { bar.style.display = navigator.onLine ? 'none' : 'block'; };
+        window.addEventListener('online', update);
+        window.addEventListener('offline', update);
+        update();
+        },
+
+        async register() {
+        const firstName = document.getElementById('regFirstName').value.trim();
+        const lastName = document.getElementById('regLastName').value.trim();
+        const username = document.getElementById('regUsername').value.trim();
+        const email = document.getElementById('regEmail').value.trim();
+        const phone = document.getElementById('regPhone').value.trim();
+        const classNum = document.getElementById('regClass').value;
+        const schoolName = document.getElementById('regSchool').value.trim();
+        const password = document.getElementById('regPassword').value;
+        const confirm = document.getElementById('regConfirm').value;
+
+        if (!firstName || !lastName || !username || !password) {
+            this.toast('ਸਾਰੇ ਜ਼ਰੂਰੀ ਖੇਤਰ ਭਰੋ');
+            return;
+        }
+        if (password !== confirm) {
+            this.toast('ਪਾਸਵਰਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ');
+            return;
+        }
+
+        const existing = await NabhaDB.getAll('students');
+        if (existing.some(s => s.username === username)) {
+            this.toast('ਯੂਜ਼ਰਨੇਮ ਪਹਿਲਾਂ ਹੀ ਵਰਤਿਆ ਗਿਆ');
+            return;
+        }
+
+        const student = {
+            type: 'registration',
+            firstName, lastName, username, email, phone,
+            class: classNum, schoolName,
+            password,
+            joinedAt: new Date().toISOString(),
+            avatarInitial: firstName.charAt(0) || '?'
+        };
+
+        // Send registration to the backend server
+        try {
+            const result = await NabhaAPI.submit(student);
+            student.id = result.data.id;
+            this.toast('ਰਜਿਸਟਰ ਹੋ ਗਿਆ — ਸਰਵਰ ਤੇ ਸੁਰੱਖਿਅਤ');
+        } catch (err) {
+            this.toast('ਸਰਵਰ ਗਲਤੀ: ' + err.message);
+            return;
+        }
+
+        const id = await NabhaDB.add('students', student);
+        if (!student.id) student.id = id;
+
+        // Seed default subject progress
+        const subjects = [
+            { subject: 'ਗਣਿਤ | Mathematics', percent: 40 },
+            { subject: 'ਵਿਗਿਆਨ | Science', percent: 35 },
+            { subject: 'ਅੰਗਰੇਜ਼ੀ | English', percent: 30 },
+            { subject: 'ਇਤਿਹਾਸ | History', percent: 25 }
+        ];
+        for (const sub of subjects) {
+            await NabhaDB.add('progress', { studentId: id, ...sub });
+        }
+
+        await NabhaDB.add('badges', {
+            studentId: id, badgeId: 'starter', name: 'ਸ਼ੁਰੂਆਤੀ', earnedAt: new Date().toISOString()
+        });
+
+        await NabhaDB.setMeta('currentStudentId', id);
+        this.currentUser = student;
+        this.showView('performance');
+        },
+
+        async login() {
+        const username = document.getElementById('loginUsername').value.trim();
+        const password = document.getElementById('loginPassword').value;
+
+        // Try server first
+        try {
+            const serverData = await NabhaAPI.getData();
+            const serverUser = (serverData.students || []).find(
+            s => s.type === 'registration' && s.username === username && s.password === password
+            );
+            if (serverUser) {
+            this.currentUser = serverUser;
+            await NabhaDB.setMeta('currentStudentId', serverUser.id);
+            this.toast('ਲੌਗਇਨ ਸਫਲ (ਸਰਵਰ)');
+            this.showView('performance');
+            return;
+            }
+        } catch (err) {
+            console.warn('Server login failed, trying local:', err.message);
+        }
+
+        // Fallback to local IndexedDB
+        const students = await NabhaDB.getAll('students');
+        const user = students.find(s => s.username === username && s.password === password);
+        if (!user) {
+            this.toast('ਗਲਤ ਆਈਡੀ ਜਾਂ ਪਾਸਵਰਡ');
+            return;
+        }
+        await NabhaDB.setMeta('currentStudentId', user.id);
+        this.currentUser = user;
+        this.toast('ਲੌਗਇਨ ਸਫਲ (ਆਫਲਾਈਨ)');
+        this.showView('performance');
+        },
+
+        requireUser() {
+        if (!this.currentUser) {
+            this.toast('ਪਹਿਲਾਂ ਲੌਗਇਨ ਜਾਂ ਰਜਿਸਟਰ ਕਰੋ');
+            this.showView('login');
+            return false;
+        }
+        return true;
+        },
+
+        renderBadgeCatalog() {
+        const el = document.getElementById('badgeCatalog');
+        el.innerHTML = BADGE_CATALOG.map(b => `
+            <div class="badge-card" title="${b.desc}">
+            <i class="fas fa-${b.icon}"></i>
+            <div><strong>${b.name}</strong></div>
+            </div>`).join('');
+        },
+
+        renderResourceCatalog() {
+        const el = document.getElementById('resourceCatalog');
+        el.innerHTML = CONTENT_CATALOG.map(c => this.resourceCardHTML(c, true)).join('');
+        },
+
+        resourceCardHTML(c, catalog) {
+        const iconMap = { book: 'book', video: 'video', headphones: 'headphones', gamepad: 'gamepad', history: 'history', flask: 'flask' };
+        return `
+            <div class="resource-card" style="margin-bottom:12px;">
+            <div class="resource-thumb" style="background:${c.color}"><i class="fas fa-${iconMap[c.icon] || 'file'}"></i></div>
+            <div class="resource-body">
+                <h3>${c.title}</h3>
+                <div class="resource-meta">${c.type} · ${c.sizeMB} MB</div>
+                <p style="font-size:0.9rem;color:var(--text-light);">${c.description}</p>
+                ${catalog ? `<button class="btn-sm btn-download" onclick="NabhaApp.addDownload('${c.contentId}')"><i class="fas fa-download"></i> ਡਾਊਨਲੋਡ</button>` : ''}
+            </div>
+            </div>`;
+        },
+
+        async addDownload(contentId) {
+        if (!this.requireUser()) return;
+        const c = CONTENT_CATALOG.find(x => x.contentId === contentId);
+        if (!c) return;
+        const existing = await NabhaDB.getByIndex('downloads', 'studentId', this.currentUser.id);
+        if (existing.some(d => d.contentId === contentId)) {
+            this.toast('ਪਹਿਲਾਂ ਹੀ ਡਾਊਨਲੋਡ ਸੂਚੀ ਵਿੱਚ');
+            return;
+        }
+        await NabhaDB.add('downloads', {
+            studentId: this.currentUser.id,
+            contentId: c.contentId,
+            title: c.title,
+            type: c.type,
+            sizeMB: c.sizeMB,
+            description: c.description,
+            icon: c.icon,
+            color: c.color,
+            downloadedAt: new Date().toISOString()
+        });
+        this.toast('ਡਾਊਨਲੋਡ ਸੂਚੀ ਵਿੱਚ ਸੁਰੱਖਿਅਤ (ਆਫਲਾਈਨ)');
+        },
+
+        async loadDownloads() {
+        const catalogEl = document.getElementById('catalogDownloads');
+        catalogEl.innerHTML = CONTENT_CATALOG.map(c => this.resourceCardHTML(c, true)).join('');
+
+        if (!this.currentUser) {
+            document.getElementById('myDownloads').innerHTML = '<p style="text-align:center;color:var(--text-light);">ਲੌਗਇਨ ਕਰੋ ਡਾਊਨਲੋਡ ਟ੍ਰੈਕ ਕਰਨ ਲਈ</p>';
+            document.getElementById('dlTotal').textContent = '0';
+            document.getElementById('dlToday').textContent = '0';
+            document.getElementById('dlWeek').textContent = '0';
+            return;
+        }
+
+        const items = await NabhaDB.getByIndex('downloads', 'studentId', this.currentUser.id);
+        const now = new Date();
+        const today = items.filter(d => new Date(d.downloadedAt).toDateString() === now.toDateString()).length;
+        const weekAgo = new Date(now - 7 * 86400000);
+        const week = items.filter(d => new Date(d.downloadedAt) >= weekAgo).length;
+
+        document.getElementById('dlTotal').textContent = items.length;
+        document.getElementById('dlToday').textContent = today;
+        document.getElementById('dlWeek').textContent = week;
+
+        const iconMap = { book: 'book', video: 'video', headphones: 'headphones', gamepad: 'gamepad', history: 'history', flask: 'flask' };
+        document.getElementById('myDownloads').innerHTML = items.length
+            ? items.map(d => `
+            <div class="download-item">
+                <div class="download-preview" style="background:${d.color}"><i class="fas fa-${iconMap[d.icon] || 'file'}"></i></div>
+                <div style="flex:1;">
+                <strong>${d.title}</strong>
+                <div style="font-size:0.85rem;color:var(--text-light);">${d.type} · ${d.sizeMB} MB · ${new Date(d.downloadedAt).toLocaleDateString()}</div>
+                <button class="btn-sm btn-delete" style="margin-top:8px;" onclick="NabhaApp.removeDownload(${d.id})">ਹਟਾਓ</button>
+                </div>
+            </div>`).join('')
+            : '<p style="color:var(--text-light);">ਹਾਲੇ ਕੋਈ ਡਾਊਨਲੋਡ ਨਹੀਂ</p>';
+        },
+
+        async removeDownload(id) {
+        await NabhaDB.deleteItem('downloads', id);
+        this.toast('ਹਟਾ ਦਿੱਤਾ ਗਿਆ');
+        this.loadDownloads();
+        },
+
+        resetQuizUI() {
+        document.getElementById('quizStart').style.display = 'block';
+        document.getElementById('quizPlay').style.display = 'none';
+        document.getElementById('quizResults').style.display = 'none';
+        this.quizState = null;
+        },
+
+        startQuiz() {
+        const p1 = document.getElementById('player1Name').value.trim() || 'ਖਿਡਾਰੀ 1';
+        const p2 = document.getElementById('player2Name').value.trim() || 'ਖਿਡਾਰੀ 2';
+        this.quizState = {
+            player1Name: p1, player2Name: p2,
+            currentPlayer: 1, questionIndex: 0,
+            p1Score: 0, p2Score: 0,
+            p1Answers: [], p2Answers: [],
+            phase: 'p1'
+        };
+        document.getElementById('quizStart').style.display = 'none';
+        document.getElementById('quizPlay').style.display = 'block';
+        document.getElementById('quizQTotal').textContent = QUIZ_DATA.length;
+        this.renderQuizQuestion();
+        },
+
+        renderQuizQuestion() {
+        const s = this.quizState;
+        const q = QUIZ_DATA[s.questionIndex];
+        const label = s.currentPlayer === 1 ? s.player1Name : s.player2Name;
+        document.getElementById('quizPlayerLabel').textContent = label + ' ਦੀ ਵਾਰੀ';
+        document.getElementById('quizQNum').textContent = s.questionIndex + 1;
+        document.getElementById('quizQuestion').textContent = q.question;
+        document.getElementById('quizProgressBar').style.width = ((s.questionIndex + 1) / QUIZ_DATA.length * 100) + '%';
+
+        const opts = document.getElementById('quizOptions');
+        opts.innerHTML = q.options.map((o, i) =>
+            `<div class="quiz-option" data-i="${i}" onclick="NabhaApp.selectQuizOption(${i})">${o}</div>`
+        ).join('');
+        document.getElementById('quizPrevBtn').disabled = s.questionIndex === 0;
+        },
+
+        selectQuizOption(i) {
+        const s = this.quizState;
+        const q = QUIZ_DATA[s.questionIndex];
+        document.querySelectorAll('.quiz-option').forEach((el, idx) => {
+            el.classList.remove('selected');
+            if (idx === i) el.classList.add('selected');
+            if (idx === q.correct) el.classList.add('correct');
+            if (idx === i && i !== q.correct) el.classList.add('wrong');
+        });
+        if (s.currentPlayer === 1) s.p1Answers[s.questionIndex] = i;
+        else s.p2Answers[s.questionIndex] = i;
+        if (i === q.correct) {
+            if (s.currentPlayer === 1) s.p1Score++;
+            else s.p2Score++;
+        }
+        },
+
+        quizNext() {
+        const s = this.quizState;
+        if (s.questionIndex < QUIZ_DATA.length - 1) {
+            s.questionIndex++;
+            this.renderQuizQuestion();
+        } else if (s.currentPlayer === 1) {
+            s.currentPlayer = 2;
+            s.questionIndex = 0;
+            this.renderQuizQuestion();
+        } else {
+            this.showQuizResults();
+        }
+        },
+
+        quizPrev() {
+        const s = this.quizState;
+        if (s.questionIndex > 0) {
+            s.questionIndex--;
+            this.renderQuizQuestion();
+        }
+        },
+
+        showQuizResults() {
+        const s = this.quizState;
+        const p1Pct = Math.round((s.p1Score / QUIZ_DATA.length) * 100);
+        const p2Pct = Math.round((s.p2Score / QUIZ_DATA.length) * 100);
+        document.getElementById('quizPlay').style.display = 'none';
+        document.getElementById('quizResults').style.display = 'block';
+        document.getElementById('resP1Name').textContent = s.player1Name;
+        document.getElementById('resP2Name').textContent = s.player2Name;
+        document.getElementById('resP1Score').textContent = p1Pct + '%';
+        document.getElementById('resP2Score').textContent = p2Pct + '%';
+        s.p1Pct = p1Pct;
+        s.p2Pct = p2Pct;
+        },
+
+        async saveQuizAndShowPerformance() {
+        if (!this.quizState) return;
+        const s = this.quizState;
+        const studentId = this.currentUser ? this.currentUser.id : null;
+
+        const quizRecord = {
+            type: 'quiz',
+            studentId,
+            quizName: 'ਦੋਸਤਾਂ ਨਾਲ ਕੁਇਜ਼ | Quiz With Friends',
+            player1Name: s.player1Name,
+            player2Name: s.player2Name,
+            player1Score: s.p1Score,
+            player2Score: s.p2Score,
+            totalQuestions: QUIZ_DATA.length,
+            player1Percent: s.p1Pct,
+            player2Percent: s.p2Pct,
+            completedAt: new Date().toISOString()
+        };
+
+        // Save quiz results to the backend server
+        try {
+            await NabhaAPI.submit({
+            username: this.currentUser ? this.currentUser.username : s.player1Name,
+            ...quizRecord
+            });
+        } catch (err) {
+            console.warn('Could not save quiz to server:', err.message);
+        }
+
+        await NabhaDB.add('quizAttempts', {
+            ...quizRecord
+        });
+
+        if (studentId && s.p1Pct >= 70) {
+            const earned = await NabhaDB.getByIndex('badges', 'studentId', studentId);
+            if (!earned.some(b => b.badgeId === 'quiz')) {
+            await NabhaDB.add('badges', {
+                studentId, badgeId: 'quiz', name: 'ਕੁਇਜ਼ ਚੈਂਪੀਅਨ', earnedAt: new Date().toISOString()
+            });
+            }
+            // bump math progress
+            const prog = await NabhaDB.getByIndex('progress', 'studentId', studentId);
+            const math = prog.find(p => p.subject.includes('ਗਣਿਤ'));
+            if (math) {
+            math.percent = Math.min(100, math.percent + 5);
+            await NabhaDB.put('progress', math);
+            }
+        }
+
+        this.toast('ਕੁਇਜ਼ ਨਤੀਜੇ ਆਫਲਾਈਨ ਸੁਰੱਖਿਅਤ');
+        if (!this.currentUser) {
+            this.toast('ਰਜਿਸਟਰ ਕਰੋ ਪੂਰੀ ਤਰੱਕੀ ਟ੍ਰੈਕ ਕਰਨ ਲਈ');
+            this.showView('register');
+            return;
+        }
+        this.showView('performance');
+        },
+
+        async loadPerformance() {
+        if (!this.currentUser) {
+            this.toast('ਲੌਗਇਨ ਕਰੋ');
+            this.showView('login');
+            return;
+        }
+        const u = this.currentUser;
+        document.getElementById('perfAvatar').textContent = u.avatarInitial || '?';
+        document.getElementById('perfName').textContent = `${u.firstName} ${u.lastName}`;
+        document.getElementById('perfMeta').textContent =
+            `ਕਲਾਸ ${u.class} · ${u.schoolName || 'ਸਕੂਲ'} · ਸ਼ਾਮਲ: ${new Date(u.joinedAt).toLocaleDateString()}`;
+
+        const attempts = await NabhaDB.getByIndex('quizAttempts', 'studentId', u.id);
+        const badges = await NabhaDB.getByIndex('badges', 'studentId', u.id);
+        const progress = await NabhaDB.getByIndex('progress', 'studentId', u.id);
+
+        const avg = attempts.length
+            ? Math.round(attempts.reduce((a, x) => a + (x.player1Percent || 0), 0) / attempts.length)
+            : 0;
+
+        document.getElementById('statQuizzes').textContent = attempts.length;
+        document.getElementById('statAvg').textContent = avg + '%';
+        document.getElementById('statBadges').textContent = badges.length;
+
+        document.getElementById('perfQuizList').innerHTML = attempts.length
+            ? attempts.slice(-5).reverse().map(a => `
+            <div class="quiz-result-row">
+                <div>
+                <strong>${a.quizName}</strong>
+                <div style="font-size:0.85rem;color:var(--text-light);">${new Date(a.completedAt).toLocaleDateString()}</div>
+                </div>
+                <div style="font-weight:700;color:var(--primary);">${a.player1Percent}%</div>
+            </div>`).join('')
+            : '<p style="color:var(--text-light);">ਹਾਲੇ ਕੋਈ ਕੁਇਜ਼ ਨਹੀਂ</p>';
+
+        document.getElementById('perfBadges').innerHTML = badges.map(b => `
+            <div class="badge-card"><i class="fas fa-award"></i><div>${b.name}</div></div>`).join('') || '<p>ਕੋਈ ਬੈਜ ਨਹੀਂ</p>';
+
+        document.getElementById('perfSubjects').innerHTML = progress.map(p => `
+            <div class="progress-item">
+            <div class="progress-header"><span>${p.subject}</span><span>${p.percent}%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:${p.percent}%"></div></div>
+            </div>`).join('');
+
+        this.renderProgressChart(attempts);
+        },
+
+    loadChartJs() {
+        return new Promise((resolve, reject) => {
+            if (window.Chart) return resolve(window.Chart);
+            const s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+            s.onload = () => resolve(window.Chart);
+            s.onerror = () => reject(new Error('Chart.js CDN blocked'));
+            document.head.appendChild(s);
+        });
+        },
+
+        async renderProgressChart(attempts) {
+        const labels = attempts.slice(-5).map((a, i) => '#' + (i + 1));
+        const data = attempts.slice(-5).map(a => a.player1Percent || 0);
+        if (labels.length === 0) { labels.push('ਸ਼ੁਰੂ'); data.push(0); }
+
+        const ctx = document.getElementById('progressChart');
+        const parent = ctx.parentElement;
+
+        try {
+            const ChartLib = await this.loadChartJs();
+            if (this.progressChart) this.progressChart.destroy();
+            this.progressChart = new ChartLib(ctx, {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [{
+                label: 'ਕੁਇਜ਼ ਸਕੋਰ %',
+                data,
+                borderColor: '#FF6B00',
+                backgroundColor: 'rgba(255,107,0,0.1)',
+                fill: true,
+                tension: 0.4
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { min: 0, max: 100 } } }
+            });
+        } catch (e) {
+            parent.innerHTML = '<p style="padding:20px;text-align:center;color:#757575;">ਚਾਰਟ ਲੋਡ ਨਹੀਂ ਹੋਇਆ (ਇੰਟਰਨੈੱਟ ਚੈਕ ਕਰੋ)<br>ਔਸਤ: ' + (data[data.length-1] || 0) + '%</p>';
+        }
+        },
+
+        async exportStudentData() {
+        if (!this.requireUser()) return;
+        const id = this.currentUser.id;
+        const exportData = {
+            student: this.currentUser,
+            quizAttempts: await NabhaDB.getByIndex('quizAttempts', 'studentId', id),
+            downloads: await NabhaDB.getByIndex('downloads', 'studentId', id),
+            progress: await NabhaDB.getByIndex('progress', 'studentId', id),
+            badges: await NabhaDB.getByIndex('badges', 'studentId', id),
+            gameSessions: await NabhaDB.getByIndex('gameSessions', 'studentId', id),
+            exportedAt: new Date().toISOString()
+        };
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `nabha-student-${this.currentUser.username}.json`;
+        a.click();
+        this.toast('JSON ਐਕਸਪੋਰਟ ਹੋ ਗਿਆ');
+        },
+
+        newMathProblem() {
+        const n1 = Math.floor(Math.random() * 10) + 1;
+        const n2 = Math.floor(Math.random() * 10) + 1;
+        const ops = ['+', '-', '×'];
+        const op = ops[Math.floor(Math.random() * ops.length)];
+        let ans = 0;
+        let text = '';
+        if (op === '+') { ans = n1 + n2; text = `${n1} + ${n2} = ?`; }
+        else if (op === '-') { ans = n1 - n2; text = `${n1} - ${n2} = ?`; }
+        else { ans = n1 * n2; text = `${n1} × ${n2} = ?`; }
+        this.mathState.answer = ans;
+        document.getElementById('mathProblem').textContent = text;
+        const wrong = new Set([ans]);
+        const opts = [ans];
+        while (opts.length < 4) {
+            const w = ans + Math.floor(Math.random() * 10) - 5;
+            if (!wrong.has(w)) { wrong.add(w); opts.push(w); }
+        }
+        opts.sort(() => Math.random() - 0.5);
+        document.getElementById('mathOptions').innerHTML = opts.map(v =>
+            `<div class="math-opt" onclick="NabhaApp.checkMath(${v})">${v}</div>`
+        ).join('');
+        },
+
+        async checkMath(val) {
+        if (val === this.mathState.answer) {
+            this.mathState.score++;
+            document.getElementById('mathScore').textContent = this.mathState.score;
+            this.toast('ਸਹੀ!');
+        } else {
+            this.mathState.lives--;
+            document.getElementById('mathLives').textContent = this.mathState.lives;
+            this.toast('ਗਲਤ — ਦੁਬਾਰਾ ਕਰੋ');
+        }
+        if (this.mathState.lives <= 0) {
+            if (this.currentUser) {
+            await NabhaDB.add('gameSessions', {
+                studentId: this.currentUser.id,
+                gameType: 'math',
+                score: this.mathState.score,
+                lives: 0,
+                playedAt: new Date().toISOString()
+            });
+            }
+            this.mathState.score = 0;
+            this.mathState.lives = 3;
+            document.getElementById('mathScore').textContent = '0';
+            document.getElementById('mathLives').textContent = '3';
+            this.toast('ਖੇਡ ਖਤਮ — ਦੁਬਾਰਾ ਸ਼ੁਰੂ');
+        }
+        this.newMathProblem();
+        },
+
+        toggleVoice() {
+        const btn = document.getElementById('micBtn');
+        const resp = document.getElementById('voiceResponse');
+        if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+            resp.textContent = 'ਆਵਾਜ਼ ਸਪੋਰਟ ਇਸ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਉਪਲਬਧ ਨਹੀਂ';
+            return;
+        }
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const rec = new SR();
+        rec.lang = 'pa-IN';
+        rec.onstart = () => btn.classList.add('listening');
+        rec.onend = () => btn.classList.remove('listening');
+        rec.onresult = (e) => {
+            const t = e.results[0][0].transcript;
+            this.voiceCommand(t);
+        };
+        rec.start();
+        },
+
+        voiceCommand(text) {
+        const resp = document.getElementById('voiceResponse');
+        resp.textContent = 'ਸੁਣਿਆ: ' + text;
+        const lower = text.toLowerCase();
+        if (text.includes('ਗਣਿਤ') || lower.includes('math')) {
+            this.showView('main');
+            setTimeout(() => {
+            document.querySelector('[data-tab="resources"]').click();
+            resp.textContent = 'ਗਣਿਤ ਸਰੋਤ ਖੋਲ੍ਹੇ ਗਏ';
+            }, 300);
+        } else if (text.includes('ਤਰੱਕੀ') || lower.includes('progress')) {
+            this.showView('performance');
+            resp.textContent = 'ਤਰੱਕੀ ਪੇਜ ਖੋਲ੍ਹਿਆ';
+        } else if (text.includes('ਖੇਡ') || lower.includes('game')) {
+            this.showView('quiz');
+            resp.textContent = 'ਕੁਇਜ਼ ਖੋਲ੍ਹੀ';
+        } else {
+            resp.textContent = 'ਆਦੇਸ਼ ਸਮਝਿਆ — ਮਦਦ: ਗਣਿਤ, ਤਰੱਕੀ, ਖੇਡ';
+        }
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => NabhaApp.init());
+    } else {
+        NabhaApp.init();
+    }
+    </script>
+    </body>
+    </html>
